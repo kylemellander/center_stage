@@ -1,9 +1,6 @@
 development:
   adapter: postgresql
   database: center_stage_development
-  username: <%= ENV['PG_USER'] %>
-	password: <%= ENV['PG_PASS'] %>
-	host: localhost
 
 test:
   adapter: postgresql
