@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: center_stage_development
+  username: postgres
+  password: secret
+
+test:
+  adapter: postgresql
+  database: center_stage_test
+  username: postgres
+  password: secret  
