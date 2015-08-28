@@ -18,7 +18,8 @@ end
 get('/bands/:id') do
   id = params['id'].to_i
   @band = Band.find(id)
-  @upcoming_concerts = Concert.where(band_id: id).where("date > '#{Time.now}'").order('date ASC').all
+  @upcoming_concerts = Concert.where(band_id: id).where("date >= '#{Time.now}'").order('date ASC').all
+  @past_concerts = Concert.where(band_id: id).where("date < '#{Time.now}'").order('date DESC').all
   erb(:band_info)
 end
 
@@ -110,4 +111,16 @@ post("/bands/:id/concerts/new") do
     @venues.push(Venue.find(id.to_i))
   end
   erb(:add_concert_through_band)
+end
+
+post("/bands/:id/concerts") do
+  venues = params['venues']
+  dates = params['dates']
+  band_id = params['id'].to_i
+  i=0
+  venues.each do |venue_id|
+    Concert.create({venue_id: venue_id.to_i, band_id: band_id, date: dates[i]})
+    i+=1
+  end
+  redirect("/bands/#{band_id}")
 end

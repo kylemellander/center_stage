@@ -5,11 +5,11 @@
       <div class="alert alert-danger"><%= error %></div>
     <% end %>
   <% end %>
-  <form class="ko-form" action="/concerts/new" method="post">
+  <form class="ko-form" action="/bands/<%= @band.id %>/concerts" method="post">
     <% @venues.each do |venue| %>
-    <input type="hidden" name="venue[]" value="<%=venue.id%>">s
+    <input type="hidden" name="venues[]" value="<%=venue.id%>">
     <label for="date">Date of Concert at <%= venue.name %></label>
-    <input type="text" name="date[]" placeholder="MM/DD/YYYY">
+    <input type="text" name="dates[]" placeholder="MM/DD/YYYY">
     <% end %>
     <button type="submit">ADD CONCERTS</button>
   </form>
