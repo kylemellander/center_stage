@@ -7,10 +7,13 @@
     <% end %>
     </div>
   <% end %>
-  <form class="ko-form" action="/bands" method="post">
-    <label for="name">Band Name:</label>
-    <input type="text" name="name" placeholder="e.g. Foo Fighters">
-
+  <form class="ko-form form-horizontal" action="/bands" method="post">
+    <div class="form-group">
+      <label for="name" class="col-sm-2">Band Name:</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" class="form-control" placeholder="e.g. Foo Fighters">
+      </div>
+    </div>
     <button type="submit">ADD BAND</button>
   </form>
 </div>

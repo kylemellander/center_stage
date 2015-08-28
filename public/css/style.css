@@ -1,7 +1,7 @@
 body {
   font-family: 'Droid Serif', serif;
 }
-h2, h3, .ko-top-menu, button {
+h2, h3, .ko-top-menu {
   font-family: 'Oswald', sans-serif;
 }
 a {
@@ -39,6 +39,11 @@ h5 {
   border-color:transparent;
   margin-bottom: 50px;
 }
+.icon-bar{
+  margin-top:20px;
+  color:#fff;
+  background:#fff;
+}
 .ko-top-menu {
   margin-top:30px;
   font-size: 2em;
@@ -54,12 +59,45 @@ h5 {
   background:url('/img/lightsbackground.png') no-repeat center center fixed;
   background-size:cover;
   min-height:400px;
+  padding: 0 30px 20px 30px;
 }
 a.edit_button {
   display:inline;
   float:right;
   margin:20px;
 }
-.ko-form{
+.ko-form-container {
   margin-top:20px;
+}
+.ko-form{
+  display:inline;
+}
+.ko-form{
+  font-family: 'Oswald', sans-serif;
+  font-size:1.5em;
+}
+.ko-form .checkbox {
+  font-size:.7em;
+  color:#8e0000;
+}
+.ko-form button {
+  display:inline-block;
+  font-family: 'Amatic SC', cursive;
+  font-size:2em;
+  margin:5px 0;
+  background:transparent;
+  border:1px solid #8e0000;
+  color:#8e0000;
+  padding:10px 30px;
+}
+.checkbox {
+  margin-left:40px;
+}
+.form-month, .form-day {
+  display:inline;
+  width:50px;
+}
+.form-year {
+  display:inline;
+  width:100px;
 }
