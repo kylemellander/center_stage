@@ -48,3 +48,8 @@ delete("/bands/:id") do
   band.destroy
   redirect("/bands")
 end
+
+get("/venues") do
+  @venues = Venue.order("state", "city", "name").all
+  erb(:venues)
+end
