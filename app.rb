@@ -2,6 +2,9 @@ require("bundler/setup")
 require 'pry'
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+require 'active_record'
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 get("/") do
   erb(:index)
