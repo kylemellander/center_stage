@@ -12,7 +12,7 @@ describe('/bands', {type: :feature}) do
     visit('/bands')
     click_link('adding one')
     fill_in('name', with: "Foo Fighters")
-    click_button('Add Band')
+    click_button('ADD BAND')
     expect(page).to have_content("Foo Fighters")
   end
 end
