@@ -1,4 +1,5 @@
 require("bundler/setup")
+require 'pry'
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
@@ -18,8 +19,8 @@ end
 get('/bands/:id') do
   id = params['id'].to_i
   @band = Band.find(id)
-  @upcoming_concerts = Concert.where(band_id: id).where("date >= '#{Time.now}'").order('date ASC').all
-  @past_concerts = Concert.where(band_id: id).where("date < '#{Time.now}'").order('date DESC').all
+  @upcoming_concerts = Concert.where(band_id: id).where("date >= ?", Time.now-1.day).order('date ASC').all
+  @past_concerts = Concert.where(band_id: id).where("date <= ?", Time.now-1.day).order('date DESC').all
   erb(:band_info)
 end
 
@@ -105,21 +106,28 @@ delete("/venues/:id") do
 end
 
 post("/bands/:id/concerts/new") do
-  @band = Band.find(params['id'].to_i)
-  @venues = []
-  params['concerts'].each do |id|
-    @venues.push(Venue.find(id.to_i))
+  if params['concerts'] != nil
+    @band = Band.find(params['id'].to_i)
+    @venues = []
+    params['concerts'].each do |id|
+      @venues.push(Venue.find(id.to_i))
+    end
+    erb(:add_concert_through_band)
+  else
+    redirect("/bands/#{params['id'].to_i}")
   end
-  erb(:add_concert_through_band)
 end
 
 post("/bands/:id/concerts") do
   venues = params['venues']
-  dates = params['dates']
+  months = params['months']
+  days = params['days']
+  years = params['years']
   band_id = params['id'].to_i
   i=0
   venues.each do |venue_id|
-    Concert.create({venue_id: venue_id.to_i, band_id: band_id, date: dates[i]})
+    date = Time.new(years[i],months[i],days[i])
+    Concert.create({venue_id: venue_id.to_i, band_id: band_id, date: date})
     i+=1
   end
   redirect("/bands/#{band_id}")

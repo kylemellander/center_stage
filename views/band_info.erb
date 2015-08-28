@@ -5,7 +5,7 @@
   <h3>Upcoming Concerts</h3>
   <ul class="ko-list">
     <% @upcoming_concerts.each do |concert| %>
-      <li><%= concert.date %> - <strong><%= concert.venue.name %> / <%= concert.venue.location %></strong></li>
+      <li><%= concert.date.strftime('%m/%d/%Y') %> - <strong><%= concert.venue.name %> / <%= concert.venue.location %></strong></li>
     <% end %>
   </ul>
   <% end %>
@@ -13,7 +13,7 @@
   <h3>Past Concerts</h3>
   <ul class="ko-list">
     <% @past_concerts.each do |concert| %>
-      <li><%= concert.date %> - <strong><%= concert.venue.name %> / <%= concert.venue.location %></strong></li>
+      <li><%= concert.date.strftime('%m/%d/%Y') %> - <strong><%= concert.venue.name %> / <%= concert.venue.location %></strong></li>
     <% end %>
   </ul>
   <% end %>

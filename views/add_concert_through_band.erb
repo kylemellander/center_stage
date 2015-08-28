@@ -9,7 +9,7 @@
     <% @venues.each do |venue| %>
     <input type="hidden" name="venues[]" value="<%=venue.id%>">
     <label for="date">Date of Concert at <%= venue.name %></label>
-    <input type="text" name="dates[]" placeholder="MM/DD/YYYY">
+    <input type="text" name="months[]" placeholder="MM" size="2"> / <input type="text" name="days[]" placeholder="DD" size="2"> / <input type="text" name="years[]" placeholder="YYYY" size="4"><br>
     <% end %>
     <button type="submit">ADD CONCERTS</button>
   </form>
