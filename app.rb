@@ -18,6 +18,7 @@ end
 get('/bands/:id') do
   id = params['id'].to_i
   @band = Band.find(id)
+  @upcoming_concerts = Concert.where(band_id: id).where("date > '#{Time.now}'").order('date ASC').all
   erb(:band_info)
 end
 

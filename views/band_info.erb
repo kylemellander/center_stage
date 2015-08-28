@@ -1,13 +1,24 @@
 <div class="container ko-main-content">
   <a href="/bands/<%= @band.id %>/edit" class="edit_button btn btn-default">edit</a>
   <h1><%= @band.name %></h1>
-  <% if @band.venues.any? %>
+  <% if @upcoming_concerts.any? %>
+  <h3>Upcoming Concerts</h3>
   <ul class="ko-list">
-    <% @band.venues.each do |venue| %>
-      <li><a href="/venues/<%= venue.id %>"><%= venue.name %></a></li>
+    <% @upcoming_concerts.each do |concert| %>
+      <li><%= date %> - <%= concert.venue.location %></li>
     <% end %>
   </ul>
   <% else %>
   <h3>No concerts have been entered. Turn up the volume by <a href="/concerts/new">adding one</a>.
+  <% end %>
+
+  <% if Venue.all.any? %>
+  <h3>Select Places where this band has had or will have a concert</h3>
+  <form class="ko-form" action="/bands/<%= @band.id %>/concerts/new" method="post">
+    <% Venue.all.each do |venue| %>
+    <input type="checkbox" name="concerts[]" value="<%= venue.id %>"><%= venue.name %> - <%= venue.location %>
+    <% end %>
+    <button type="submit">ADD CONCERTS</button>
+  </form>
   <% end %>
 </div>
