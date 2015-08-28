@@ -30,3 +30,21 @@ post("/bands") do
     erb(:add_band)
   end
 end
+
+get("/bands/:id/edit") do
+  @band = Band.find(params['id'].to_i)
+  erb(:edit_band)
+end
+
+patch("/bands/:id") do
+  band = Band.find(params['id'].to_i)
+  name = params['name']
+  band.update({name: name})
+  redirect("/bands/#{band.id}")
+end
+
+delete("/bands/:id") do
+  band = Band.find(params['id'].to_i)
+  band.destroy
+  redirect("/bands")
+end

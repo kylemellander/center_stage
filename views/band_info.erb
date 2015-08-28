@@ -1,4 +1,5 @@
 <div class="container ko-main-content">
+  <a href="/bands/<%= @band.id %>/edit" class="edit_button btn btn-default">edit</a>
   <h1><%= @band.name %></h1>
   <% if @band.venues.any? %>
   <ul class="ko-list">
