@@ -22,7 +22,7 @@ _This application allows an admin to enter in bands and venues and then create c
 
 OR
 
-* _Check out the test at `` in your browser_
+* _Check out the test at `https://boiling-basin-7239.herokuapp.com/` in your browser_
 
 ## Technologies Used
 
