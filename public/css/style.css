@@ -1,0 +1,28 @@
+body {
+  font-family: 'Droid Serif', serif;
+}
+h1, h2, h3, .ko-top-menu {
+  font-family: 'Oswald', sans-serif;
+}
+.ko-main-container {
+  background: url('/img/crowd.jpg') no-repeat top center fixed;
+  background-size: cover;
+  min-height:100vh;
+}
+.logo-container {
+  margin-top:100px;
+}
+.navbar {
+  background-color:transparent;
+  border-color:transparent;
+}
+.ko-top-menu {
+  margin-top:30px;
+  font-size: 2em;
+}
+.ko-top-menu a{
+  color:#fff;
+}
+.nav>li>a:focus, .nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background-color:transparent !important;
+}
