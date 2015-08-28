@@ -4,7 +4,7 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://opytzercvudnjr:uzOB_XVK5PzebDiwmhHJ5gwqR8@ec2-54-83-59-154.compute-1.amazonaws.com:5432/deanc1oq6c1975')
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 get("/") do
   erb(:index)
