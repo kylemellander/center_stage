@@ -1,0 +1,16 @@
+<div class="container ko-main-content">
+  <h1>Add Concerts for <%= @band.name %></h1>
+  <% if @band.errors.any? %>
+    <% @band.errors.full_messages.each do |error| %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% end %>
+  <% end %>
+  <form class="ko-form" action="/concerts/new" method="post">
+    <% @venues.each do |venue| %>
+    <input type="hidden" name="venue[]" value="<%=venue.id%>">s
+    <label for="date">Date of Concert at <%= venue.name %></label>
+    <input type="text" name="date[]" placeholder="MM/DD/YYYY">
+    <% end %>
+    <button type="submit">ADD CONCERTS</button>
+  </form>
+</div>

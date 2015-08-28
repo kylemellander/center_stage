@@ -15,9 +15,11 @@
   <% if Venue.all.any? %>
   <h3>Select Places where this band has had or will have a concert</h3>
   <form class="ko-form" action="/bands/<%= @band.id %>/concerts/new" method="post">
-    <% Venue.all.each do |venue| %>
-    <input type="checkbox" name="concerts[]" value="<%= venue.id %>"><%= venue.name %> - <%= venue.location %>
-    <% end %>
+    <div class="checkbox">
+      <% Venue.all.each do |venue| %>
+      <input type="checkbox" name="concerts[]" value="<%= venue.id %>"><%= venue.name %> - <%= venue.location %><br>
+      <% end %>
+    </div>
     <button type="submit">ADD CONCERTS</button>
   </form>
   <% end %>

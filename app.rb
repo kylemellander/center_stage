@@ -102,3 +102,12 @@ delete("/venues/:id") do
   venue.destroy
   redirect("/venues")
 end
+
+post("/bands/:id/concerts/new") do
+  @band = Band.find(params['id'].to_i)
+  @venues = []
+  params['concerts'].each do |id|
+    @venues.push(Venue.find(id.to_i))
+  end
+  erb(:add_concert_through_band)
+end
