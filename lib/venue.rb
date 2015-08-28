@@ -6,6 +6,10 @@ class Venue < ActiveRecord::Base
   validates(:state, length: {is: 2})
   before_save(:format_name, :format_city)
 
+  def location
+    "#{city}, #{state}"
+  end
+
 private
 
   def format_name

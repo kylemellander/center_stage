@@ -1,6 +1,7 @@
 <div class="container ko-main-content">
   <a href="/venues/<%= @venue.id %>/edit" class="edit_button btn btn-default">edit</a>
   <h1><%= @venue.name %></h1>
+  <h5><%= @venue.location %></h5>
   <% if @venue.bands.any? %>
   <ul class="ko-list">
     <% @venue.bands.each do |band| %>

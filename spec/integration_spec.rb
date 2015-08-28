@@ -29,9 +29,10 @@ describe("/venues", {type: :feature}) do
     visit('/')
     click_link('Add Venue')
     fill_in("name", with: "madison square GaRDENS")
-    fill_in("city", with: "New York")
+    fill_in("city", with: "New YOrk")
     select('NY', from: 'state')
     click_button('ADD VENUE')
     expect(page).to have_content("Madison Square Gardens")
+    expect(page).to have_content("New York, NY")
   end
 end
