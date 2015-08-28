@@ -37,10 +37,13 @@ get("/bands/:id/edit") do
 end
 
 patch("/bands/:id") do
-  band = Band.find(params['id'].to_i)
+  @band = Band.find(params['id'].to_i)
   name = params['name']
-  band.update({name: name})
-  redirect("/bands/#{band.id}")
+  if @band.update({name: name})
+    redirect("/bands/#{@band.id}")
+  else
+    erb(:edit_band)
+  end
 end
 
 delete("/bands/:id") do
@@ -74,4 +77,27 @@ post("/venues") do
   else
     erb(:add_venue)
   end
+end
+
+get("/venues/:id/edit") do
+  @venue = Venue.find(params['id'].to_i)
+  erb(:edit_venue)
+end
+
+patch("/venues/:id") do
+  @venue = Venue.find(params['id'].to_i)
+  name = params['name']
+  city = params['city']
+  state = params['state']
+  if @venue.update({name: name, city: city, state: state})
+    redirect("/venues/#{@venue.id}")
+  else
+    erb(:edit_venue)
+  end
+end
+
+delete("/venues/:id") do
+  venue = Venue.find(params['id'].to_i)
+  venue.destroy
+  redirect("/venues")
 end
