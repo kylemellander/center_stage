@@ -1,0 +1,12 @@
+<div class="container ko-main-content">
+  <h1>Bands</h1>
+  <% if @bands.any? %>
+  <ul class="ko-list">
+    <% @bands.each do |band| %>
+      <li><a href="/bands/<%= band.id %>"><%= band.name %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <h3> There are no bands.  Turn up the volume by <a href="/bands/new">adding one</a>.
+  <% end %>
+</div>

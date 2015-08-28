@@ -1,8 +1,25 @@
 body {
   font-family: 'Droid Serif', serif;
 }
-h1, h2, h3, .ko-top-menu {
+h2, h3, .ko-top-menu {
   font-family: 'Oswald', sans-serif;
+}
+a {
+  color: #8e0000;
+}
+a:hover {
+  color: #6e0000;
+}
+h1 {
+  color:#8e0000;
+  font-size:8em;
+  display:inline-block;
+  margin-left:80px;
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  font-family: 'Amatic SC', cursive;
 }
 .ko-main-container {
   background: url('/img/crowd.jpg') no-repeat top center fixed;
@@ -15,6 +32,7 @@ h1, h2, h3, .ko-top-menu {
 .navbar {
   background-color:transparent;
   border-color:transparent;
+  margin-bottom: 50px;
 }
 .ko-top-menu {
   margin-top:30px;
@@ -25,4 +43,10 @@ h1, h2, h3, .ko-top-menu {
 }
 .nav>li>a:focus, .nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
   background-color:transparent !important;
+}
+.ko-main-content{
+  margin-top:20px;
+  background:url('/img/lightsbackground.png') no-repeat center center fixed;
+  background-size:cover;
+  min-height:400px;
 }
