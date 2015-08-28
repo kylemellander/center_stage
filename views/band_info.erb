@@ -3,7 +3,7 @@
   <h1><%= @band.name %></h1>
   <% if @band.venues.any? %>
   <ul class="ko-list">
-    <% @venues.each do |venue| %>
+    <% @band.venues.each do |venue| %>
       <li><a href="/venues/<%= venue.id %>"><%= venue.name %></a></li>
     <% end %>
   </ul>

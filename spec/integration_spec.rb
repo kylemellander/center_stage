@@ -24,4 +24,14 @@ describe("/venues", {type: :feature}) do
     expect(page).to have_content("VENUES")
     expect(page).to have_content("There are no venues. Turn up the volume by adding one.")
   end
+
+  it('successfully adds a venue and corrects case') do
+    visit('/')
+    click_link('Add Venue')
+    fill_in("name", with: "madison square GaRDENS")
+    fill_in("city", with: "New York")
+    select('NY', from: 'state')
+    click_button('ADD VENUE')
+    expect(page).to have_content("Madison Square Gardens")
+  end
 end

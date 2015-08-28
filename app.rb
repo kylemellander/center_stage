@@ -53,3 +53,25 @@ get("/venues") do
   @venues = Venue.order("state", "city", "name").all
   erb(:venues)
 end
+
+get("/venues/new") do
+  erb(:add_venue)
+end
+
+get('/venues/:id') do
+  id = params['id'].to_i
+  @venue = Venue.find(id)
+  erb(:venue_info)
+end
+
+post("/venues") do
+  name = params['name']
+  city = params['city']
+  state = params['state']
+  @venue = Venue.new({name: name, city: city, state: state})
+  if @venue.save
+    redirect("/venues/#{@venue.id}")
+  else
+    erb(:add_venue)
+  end
+end

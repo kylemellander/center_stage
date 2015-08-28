@@ -1,0 +1,13 @@
+<div class="container ko-main-content">
+  <a href="/venues/<%= @venue.id %>/edit" class="edit_button btn btn-default">edit</a>
+  <h1><%= @venue.name %></h1>
+  <% if @venue.bands.any? %>
+  <ul class="ko-list">
+    <% @venue.bands.each do |band| %>
+      <li><a href="/bands/<%= band.id %>"><%= band.name %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <h3>No concerts have been entered. Turn up the volume by <a href="/concerts/new">adding one</a>.
+  <% end %>
+</div>

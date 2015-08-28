@@ -2,6 +2,7 @@ class Band < ActiveRecord::Base
   has_many(:concerts)
   has_many(:venues, through: :concerts)
   validates(:name, presence: true)
+  validates(:name, uniqueness: true)
   before_save(:upcase_band)
 
 private

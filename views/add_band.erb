@@ -1,9 +1,11 @@
 <div class="container ko-main-content">
   <h1>Add a band</h1>
   <% if @band %>
+    <div class="alert alert-danger">
     <% @band.errors.full_messages.each do |error| %>
-      <div class="alert alert-danger"><%= error %></div>
+      <p><%= error %></p>
     <% end %>
+    </div>
   <% end %>
   <form class="ko-form" action="/bands" method="post">
     <label for="name">Band Name:</label>
